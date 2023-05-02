@@ -1,0 +1,51 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-websiteprogramari-dev-180208-authRole",
+      "UnauthRoleArn": "arn:aws:iam::135355648275:role/amplify-websiteprogramari-dev-180208-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::135355648275:role/amplify-websiteprogramari-dev-180208-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
+      "UnauthRoleName": "amplify-websiteprogramari-dev-180208-unauthRole",
+      "StackName": "amplify-websiteprogramari-dev-180208",
+      "StackId": "arn:aws:cloudformation:eu-west-3:135355648275:stack/amplify-websiteprogramari-dev-180208/d17a0710-e69e-11ed-8c40-06fe38183646",
+      "AmplifyAppId": "de546n8oh7rl3",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-websiteprogramari-dev-180208-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "eventsLambda": {
+          "deploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
+          "s3Key": "amplify-builds/eventsLambda-36703541766563663345-build.zip",
+          "host": "iulia-programari-database.cha9omxituke.eu-west-3.rds.amazonaws.com",
+          "user": "admin",
+          "password": "lucUCL10",
+          "port": "3306",
+          "database": "iulia-programari"
+        },
+        "websiteprogramariRDSConnection": {
+          "deploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
+          "s3Key": "amplify-builds/websiteprogramariRDSConnection-LambdaLayerVersion87323cc5-build.zip"
+        },
+        "lambdaFunc": {
+          "region": "eu-west-3",
+          "deploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
+          "s3Key": "amplify-builds/lambdaFunc-646e78616472756c3842-build.zip",
+          "env": "dev",
+          "database": "iulia-programari",
+          "host": "iulia-programari-database.cha9omxituke.eu-west-3.rds.amazonaws.com",
+          "user": "admin",
+          "password": "lucUCL10",
+          "port": "3306"
+        }
+      },
+      "auth": {
+        "authentication": {},
+        "userPoolGroups": {}
+      },
+      "api": {
+        "myapi": {}
+      }
+    }
+  }
+}

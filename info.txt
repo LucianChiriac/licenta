@@ -1,0 +1,5 @@
+// update node modules in lambda function
+1) make the changes in studio (npm install etc)
+2) zip the function
+3) 
+aws lambda update-function-code --function-name  lambda-npm --zip-file fileb://lambda-npm.zip --region eu-west-3

@@ -1,0 +1,244 @@
+{
+  "api": {
+    "myapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "authentication": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "FAMILY_NAME",
+          "GIVEN_NAME",
+          "PHONE_NUMBER"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "authentication"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "eventsLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "lambdaFunc": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "eventsLambda"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "websiteprogramariRDSConnection"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "websiteprogramariRDSConnection": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_eventsLambda_database": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_host": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_password": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_port": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventsLambda_user": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_database": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_env": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_host": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_password": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_port": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_region": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaFunc_user": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_websiteprogramariRDSConnection_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "websiteprogramariRDSConnection"
+        }
+      ]
+    },
+    "AMPLIFY_function_websiteprogramariRDSConnection_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "websiteprogramariRDSConnection"
+        }
+      ]
+    }
+  }
+}

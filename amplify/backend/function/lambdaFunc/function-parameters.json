@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "function": {
+      "eventsLambda": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "websiteprogramariRDSConnection",
+      "env": "dev",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "region",
+      "environmentVariableName": "REGION"
+    },
+    {
+      "cloudFormationParameterName": "env",
+      "environmentVariableName": "ENV"
+    },
+    {
+      "cloudFormationParameterName": "database",
+      "environmentVariableName": "database"
+    },
+    {
+      "cloudFormationParameterName": "host",
+      "environmentVariableName": "host"
+    },
+    {
+      "cloudFormationParameterName": "user",
+      "environmentVariableName": "user"
+    },
+    {
+      "cloudFormationParameterName": "password",
+      "environmentVariableName": "password"
+    },
+    {
+      "cloudFormationParameterName": "port",
+      "environmentVariableName": "port"
+    },
+    {
+      "cloudFormationParameterName": "region",
+      "environmentVariableName": "REGION"
+    }
+  ]
+}

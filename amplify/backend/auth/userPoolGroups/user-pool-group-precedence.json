@@ -1,0 +1,14 @@
+[
+  {
+    "groupName": "registered",
+    "precedence": 1
+  },
+  {
+    "groupName": "admins",
+    "precedence": 2
+  },
+  {
+    "groupName": "guests",
+    "precedence": 3
+  }
+]
