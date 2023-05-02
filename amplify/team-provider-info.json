@@ -14,15 +14,7 @@
     },
     "categories": {
       "function": {
-        "eventsLambda": {
-          "deploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
-          "s3Key": "amplify-builds/eventsLambda-36703541766563663345-build.zip",
-          "host": "iulia-programari-database.cha9omxituke.eu-west-3.rds.amazonaws.com",
-          "user": "admin",
-          "password": "lucUCL10",
-          "port": "3306",
-          "database": "iulia-programari"
-        },
+
         "websiteprogramariRDSConnection": {
           "deploymentBucketName": "amplify-websiteprogramari-dev-180208-deployment",
           "s3Key": "amplify-builds/websiteprogramariRDSConnection-LambdaLayerVersion87323cc5-build.zip"

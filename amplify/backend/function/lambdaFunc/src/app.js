@@ -6,27 +6,19 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-
-/* Amplify Params - DO NOT EDIT
-	ENV
-	REGION
-	FUNCTION_EVENTSLAMBDA_NAME
-	database
-	host
-	user
-	password
-	port
-Amplify Params - DO NOT EDIT */
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const {knex} = require('/opt/RDSconnection');
 // declare a new express app
-const app = express()
+const app = express();
+// ROUTES
+const events = require('./routes/events');
+const slots = require('./routes/slots');
+//
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
-
+app.use(express.json());
 // Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
@@ -34,66 +26,16 @@ app.use(function(req, res, next) {
   next()
 });
 
+app.use('/events', events);
+app.use('/slots', slots);
 
 /**********************
  * Example get method *
  **********************/
 
-app.get('/events', function(req, res) {
-  const getEvents = async() => {
-    let result = await knex.select('*').from('events');
-    return result;
- }
- getEvents().then((response)=>{
-   res.json({success: 'get call succeed!', url: req.url, body : response});  
- });
-});
-app.get('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
-});
 
-/****************************
-* Example post method *
-****************************/
 
-app.post('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
 
-app.post('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example put method *
-****************************/
-
-app.put('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-app.put('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
-});
-
-/****************************
-* Example delete method *
-****************************/
-
-app.delete('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
-
-app.delete('/item/*', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
-});
 
 app.listen(3000, function() {
     console.log("App started")
